@@ -26,6 +26,9 @@ public class Libro {
         this.isbn = isbn;
     }
 
-   
+    @Override
+    public String toString() {
+        return "ISBN: " + isbn + "\nNombre: " + nombre;
+    }
 
 }

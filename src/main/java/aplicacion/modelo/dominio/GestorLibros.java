@@ -41,6 +41,17 @@ public class GestorLibros {
         }
     }
 
+    public static boolean buscarLibro(String isbn){
+        boolean encontrado=false;
+        for (Libro libro : libros) {
+            if(libro.getIsbn()==isbn){
+                System.out.println(libro.toString());
+                encontrado=true;
+            }
+        }
+        return encontrado;
+    }
+
     public static List<Libro> getLibros() {
         return libros;
     }

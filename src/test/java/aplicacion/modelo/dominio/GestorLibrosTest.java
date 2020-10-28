@@ -10,7 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class GestorLibrosTest {
-	static String isbn = "8476157118";
+	static String isbn = "8476157118", isbn2 = "0764526413", isbn3 = "9780863815805"; 
 	// @BeforeAll
 	// public static void setUp() {
 	// 	target = new Libros();
@@ -36,7 +36,7 @@ public class GestorLibrosTest {
 
 	@DisplayName("Ordenar Libros")
 	@Test
-	public void ordenarLibros(){
+	public void ordenarLibro(){
 		Libro libro1 = new Libro("Libro 1",isbn);
 		Libro libro2 = new Libro("Libro 2",isbn);
 		Libro libro3 = new Libro("Libro 3",isbn);
@@ -53,5 +53,20 @@ public class GestorLibrosTest {
         aux.add(libro3);
         
         assertEquals(GestorLibros.getLibros(),aux);
+	}
+
+	@DisplayName("Buscar libro por ISBN")
+	@Test
+    public void buscarLibro(){
+		Libro libro1 = new Libro("Libro 1",isbn);
+		Libro libro2 = new Libro("Libro 2",isbn2);
+		Libro libro3 = new Libro("Libro 3",isbn3);
+		
+		GestorLibros.agregarLibro(isbn3,libro3);
+		GestorLibros.agregarLibro(isbn2,libro2);
+		GestorLibros.agregarLibro(isbn,libro1);
+
+		assertTrue(GestorLibros.buscarLibro(isbn2));
+	
 	}
 }
