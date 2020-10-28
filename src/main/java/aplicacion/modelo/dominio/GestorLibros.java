@@ -34,8 +34,19 @@ public class GestorLibros {
         }
     }
 
-    public static void ordenarLibrosMayorMenor(List<Libro> libros){
-        
+    public static void ordenarLibros(List<Libro> libros){
+        Collections.sort(libros, new ComparadorLibros());
+        for(Libro aux: libros){
+            System.out.println(aux.getNombre());
+        }
+    }
+
+    public static List<Libro> getLibros() {
+        return libros;
+    }
+
+    public static void setLibros(List<Libro> libros) {
+        GestorLibros.libros = libros;
     }
      
 }

@@ -3,6 +3,9 @@ package aplicacion.modelo.dominio;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -26,8 +29,29 @@ public class GestorLibrosTest {
 	@DisplayName("Agregar Libro")
 	@Test
 	public void agregarLibro(){
-		Libro target = new Libro(isbn, "Atahualpa");
+		Libro target = new Libro("Atahualpa",isbn);
 		GestorLibros.agregarLibro(isbn, target);
 		assertEquals(GestorLibros.libros.size(), 1);
+	}
+
+	@DisplayName("Ordenar Libros")
+	@Test
+	public void ordenarLibros(){
+		Libro libro1 = new Libro("Libro 1",isbn);
+		Libro libro2 = new Libro("Libro 2",isbn);
+		Libro libro3 = new Libro("Libro 3",isbn);
+		
+		GestorLibros.agregarLibro(isbn,libro3);
+		GestorLibros.agregarLibro(isbn,libro2);
+		GestorLibros.agregarLibro(isbn,libro1);
+
+		GestorLibros.ordenarLibros(GestorLibros.getLibros());
+
+		List<Libro> aux = new ArrayList<Libro>();
+		aux.add(libro1);
+		aux.add(libro2);
+        aux.add(libro3);
+        
+        assertEquals(GestorLibros.getLibros(),aux);
 	}
 }
