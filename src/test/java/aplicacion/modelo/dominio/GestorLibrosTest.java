@@ -26,7 +26,7 @@ public class GestorLibrosTest {
 	@DisplayName("Agregar Libro")
 	@Test
 	public void agregarLibro(){
-		Libro target = new Libro(isbn);
+		Libro target = new Libro(isbn, "Atahualpa");
 		GestorLibros.agregarLibro(isbn, target);
 		assertEquals(GestorLibros.libros.size(), 1);
 	}
