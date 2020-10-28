@@ -1,6 +1,7 @@
 package aplicacion.modelo.dominio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GestorLibros {
@@ -31,6 +32,10 @@ public class GestorLibros {
         if (verificarISBN(num)) {
             libros.add(isbn);
         }
+    }
+
+    public static void ordenarLibrosMayorMenor(List<Libro> libros){
+        
     }
      
 }
